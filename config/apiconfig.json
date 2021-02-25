@@ -1,0 +1,14 @@
+{
+	"shs": {
+		"host": "localhost",
+		"port": 8081,
+		"path": {
+			"login": "api/v1/user/company/login",
+			"register": "api/v1/user/company/add",
+			"changePassword": "api/v1/user/company/change/password",
+			"technologyCategoryList": "api/v1/technology/category/list",
+			"studentAbilityList": "api/v1/analysis/ability/student/list",
+			"addUserTracking": "api/v1/tracking/add"
+		}
+	}
+}

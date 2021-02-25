@@ -1,0 +1,44 @@
+.page-header {
+	margin-top: 80px;
+	max-height: 150px;
+    height: 150px;
+    background: url(/images/growing_map_header.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.list-data {
+	margin-top: 10px;
+}
+.list-data .col-md-3 {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.filter-group {
+	margin-top: -21px;
+    height: 60px;
+    background-color: #ffffff;
+	color: #7880a8;
+}
+.filter-name {
+	float: left;
+}
+.filter-item {
+	float: left;
+}
+.technology-category {
+	list-style: none;
+}
+.technology-category li {
+	float: left;
+	margin-right: 25px;
+}
+.technology-category li a {
+	text-decoration: none;
+	color: #7880a8;
+}
+.technology-category li a.active {
+	color: #2c78e4;
+}
+.student-photo {
+	width: 91px;
+	height: 91px;
+}

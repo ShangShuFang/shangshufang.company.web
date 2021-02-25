@@ -1,0 +1,42 @@
+body {
+	font: 14px "Microsoft YaHei" !important;
+    color: #646c9a;
+	background: #fbfafb;
+}
+.navbar {
+	padding-top: 15px;
+}
+.navbar-brand img {
+	height: 40px;
+	margin-top: -9px;
+}
+.navbar-default {
+    background-color: #ffffff;
+    border-color: #fbfafb;
+}
+.shf-footer {
+	background-color: #383840;
+	margin-top: 15px;
+    color: #999;
+	height: 100px;
+}
+.box-portlet {
+	background-color: #ffffff;
+	border: 1px solid #ececec;
+	padding: 10px;
+}
+.padding-b-15 {
+	padding-bottom: 15px;
+}
+.padding-b-10 {
+	padding-bottom: 10px;
+}
+.padding-t-20 {
+	padding-top: 20px;
+}
+.padding-t-25 {
+	padding-top: 25px;
+}
+.padding-t-10 {
+	padding-top: 10px;
+}
