@@ -1,36 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<title>上书房智慧教育 企业端 {{title}}</title>
-	<link href="/images/favicon.ico" rel="shortcut icon"/>
+	<link href="/images/favicon.ico" rel="shortcut icon" />
 	<link rel='stylesheet' href='/stylesheets/framework/bootstrap-3.3.7/bootstrap.min.css' />
 	<link rel='stylesheet' href='/stylesheets/plugins/dropdown/dropdown.css' />
 	<link rel='stylesheet' href='/stylesheets/plugins/font-awesome-4.7.0/font-awesome.min.css' />
 	<link rel='stylesheet' href='/stylesheets/views/style.css' />
 	<script src="/javascripts/framework/jquery-2.2.0/jquery-2.2.0.min.js"></script>
 </head>
+
 <body>
 	<div class="container-fluid">
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">
+					<a class="navbar-brand" href="/index">
 						<img src="/images/logo_web.png" alt="Logo">
 					</a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active"><a href="#">人才中心</a></li>
-						<li><a href="#">企业人才库</a></li>
+					<ul class="nav navbar-nav navbar-channel">
+						<li><a href="/index">人才中心</a></li>
+						<li><a href="/company/talents">企业人才库</a></li>
 					</ul>
-					
-					<ul class="nav navbar-nav navbar-right">
-						<li><a href="#">登录</a></li>
-						<li><a href="#">注册</a></li>
-						
+
+					<ul class="nav navbar-nav navbar-right navbar-login">
+						<li><a href="/login">登录</a></li>
+						<li><a href="/register">注册</a></li>
 					</ul>
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
@@ -39,10 +40,26 @@
 	{{{body}}}
 	<div class="container-fluid shf-footer">
 		<div class="container">
-			<div>dsfsfsffsf</div>
+			<div class="footer-content">
+				<div>
+					<a href="http://www.shangshufang.top/about" target="_blank">关于我们</a>
+					<span class="split"> | </span>
+					<a href="http://www.shangshufang.top/contact" target="_blank">联系我们</a>
+					<span class="split"> | </span>
+					<a href="http://www.shangshufang.top/cooperation" target="_blank">客户合作</a>
+					<span class="split"> | </span>
+					<a href="http://www.shangshufang.top/join" target="_blank">加入我们</a>
+					<span class="split"> | </span>
+					<a href="http://student.shangshufang.top/ability/level" target="_blank">级别标准</a>
+				</div>
+				<div class=" margin-t-5">
+					<span>联系电话：18182505299</span>
+					<span>&copy; 2021 西安樱桃谷信息技术有限公司</span>
+				</div>
+			</div>
 		</div>
 	</div>
-	
+
 	<script src="/javascripts/framework/bootstrap-3.3.7/bootstrap.min.js"></script>
 	<script src="/javascripts/framework/vue_v2.6.11/vue.min.js"></script>
 	<script src="/javascripts/framework/axios/axios.min.js"></script>
@@ -51,6 +68,7 @@
 	<script src="/stylesheets/plugins/layer/layer.min.js"></script>
 	<script src="/javascripts/common/messager.js"></script>
 	<script src="/javascripts/common/localMessage.js"></script>
+	<script src="/javascripts/common/Constants.js"></script>
 </body>
 
 </html>

@@ -8,6 +8,17 @@
 			"changePassword": "api/v1/user/company/change/password",
 			"technologyCategoryList": "api/v1/technology/category/list",
 			"studentAbilityList": "api/v1/analysis/ability/student/list",
+			"studenInfo": "api/v1/user/student/any",
+			"studenTechnologyList": "api/v1/analysis/ability/student/all/technology",
+			"studenKnowledgeAnalysisList": "api/v1/analysis/ability/student/list/comprehensive/analysis/knowledge",
+			"studenComprehensiveExercisesList": "api/v1/student/exercises/comprehensive/list/technology",
+
+			"searchCompanyTalentList": "api/v1/customer/talent/list",
+			"searchCompanyTalent": "api/v1/customer/talent/any",
+			"addCompanyTalent": "api/v1/customer/talent/add",
+			"changeCompanyTalent": "api/v1/customer/talent/change",
+			"changeCompanyTalentStatus": "api/v1/customer/talent/change/status",
+
 			"addUserTracking": "api/v1/tracking/add"
 		}
 	}

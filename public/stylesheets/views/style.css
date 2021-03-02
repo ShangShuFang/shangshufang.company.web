@@ -40,3 +40,41 @@ body {
 .padding-t-10 {
 	padding-top: 10px;
 }
+.margin-t-5 {
+	margin-top: 5px;
+}
+.margin-t-10 {
+	margin-top: 10px;
+}
+.margin-t-15 {
+	margin-top: 15px;
+}
+.margin-t-25 {
+	margin-top: 25px;
+}
+.pre-wrap {
+    white-space: pre-wrap;
+}
+.page-header {
+	margin-top: 80px;
+	max-height: 150px;
+    height: 150px;
+    background: url(/images/growing_map_header.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+.navbar-login a:hover {
+	color: #0286ee !important;
+}
+.footer-content {
+	width: 600px;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.footer-content a {
+	color: #bbbaba;
+	text-decoration: none;
+}
+.footer-content span {
+	color: #bbbaba;
+}

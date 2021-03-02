@@ -1,0 +1,30 @@
+.full-name {
+	font-size: 18px;
+}
+.content {
+	background-color: #ffffff;
+	padding: 15px;
+}
+.content .header {
+	font-size: 16px;
+	font-weight: bolder;
+	padding-bottom: 10px;
+	margin-bottom: 15px;
+	border-bottom: 1px solid #eaeaea;
+}
+.knowledge-list th:nth-child(1), .knowledge-list td:nth-child(1) {
+	width: 75%;
+}
+.knowledge-list th:nth-child(2), .knowledge-list td:nth-child(2) {
+	width: 25%;
+}
+.title {
+	padding: 15px;
+}
+.student-photo {
+	width: 100px;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover {
+    color: #0286ee !important;
+    background-color: #d4f3fe !important;
+}

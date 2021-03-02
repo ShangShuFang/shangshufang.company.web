@@ -7,7 +7,10 @@ messager.info = function (msg) {
 };
 messager.error = function (msg) {
   layer.alert(msg, {
-    icon: 1,
+    icon: 2,
     skin: 'layer-ext-moon'
   })
 };
+messager.show = function (msg) {
+	layer.msg(msg);
+}

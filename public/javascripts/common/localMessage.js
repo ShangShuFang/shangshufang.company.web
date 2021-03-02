@@ -63,6 +63,7 @@ localMessage.CELLPHONE_NOT_FOUND = '您输入的手机号码不存在';
 localMessage.COURSE_NOT_FOUND = '该课程已被删除';
 
 localMessage.COURSE_PLAN_NOT_FOUND = '该课程计划已被删除';
+localMessage.NOT_FOUND_STUDENT = '未查询到该人员的基本信息';
 
 
 localMessage.exception = function (code, msg) {

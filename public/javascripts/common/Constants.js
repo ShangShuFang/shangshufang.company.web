@@ -20,7 +20,7 @@ Constants.ACCOUNT_STATUS = {
     NO_PASS: 'N',
     DISABLED: 'D',
 };
-Constants.COOKIE_LOGIN_USER = 'shs.student.user';
+Constants.COOKIE_LOGIN_USER = 'shs.company.user';
 Constants.UPLOAD_SERVICE_URI = 'http://localhost:8000/upload';
 
 const REVIEW_RESULT = {

@@ -34,7 +34,7 @@
 								<label class="control-label" v-text="student.sex == 'M' ? '男' : '女'"></label>
 							</div>
 							<div>
-								<label class="control-label" v-text="student.universityName">西安理工大学</label>
+								<label class="control-label" v-text="student.universityName"></label>
 							</div>
 						</div>
 					</div>
@@ -83,7 +83,8 @@
 					</div>
 					<div class="row" style="margin-top: 10px;">
 						<div class="col-xs-12">
-							<button type="button" class="btn btn-info btn-block">详细信息</button>
+							
+							<button type="button" class="btn btn-info btn-block" @click="openDetail(student)">详细信息</button>
 						</div>
 					</div>
 				</div>

@@ -3,7 +3,6 @@ let app = new Vue({
 	data: {
 		categoryList: [],
 		filterCategory: 0,
-
 		fromIndex: 0,
         toIndex: 0,
 		pageNumber: 1,
@@ -16,6 +15,7 @@ let app = new Vue({
 	},
 	methods: {
 		initPage: function () {
+			commonUtility.setNavActive(1);
 			this.loadCategoryList();
 			this.loadStudentList();
 		},
@@ -23,7 +23,7 @@ let app = new Vue({
 			axios.get(`/common/technology/category/list?directionID=${this.filterCategory}`)
 			.then(res => {
 				if (res.data.err) {
-					message.error(localMessage.exception(res.data.code, res.data.msg));
+					messager.error(localMessage.SYSTEM_ERROR);
 					return false;
 				}
 				
@@ -34,7 +34,7 @@ let app = new Vue({
 				});
 			})
 			.catch(err => {
-				message.error(localMessage.NETWORK_ERROR);
+				messager.error(localMessage.NETWORK_ERROR);
 			});
 		},
 		onFilterByCategory: function (technologyCategoryID) {
@@ -43,6 +43,9 @@ let app = new Vue({
 			}
 			this.filterCategory = technologyCategoryID;
 			this.loadStudentList();
+		},
+		openDetail: function (student) {
+			window.open(`/detail?student=${student.studentID}&technology=${student.technologyID}`);
 		},
 		loadStudentList: function () {
 			let that = this;
@@ -61,7 +64,6 @@ let app = new Vue({
 
 					that.totalCount = apiResponse.totalCount;
                     that.studentList = apiResponse.dataList;
-                    //that.pageNumber = parseInt(res.data.list.currentPageNum);
                     that.maxPageNumber = Math.ceil(apiResponse.totalCount / apiResponse.pageSize);
                     that.paginationArray = apiResponse.paginationArray;
                     that.prePageNum = apiResponse.prePageNum === undefined ? -1 : apiResponse.prePageNum;

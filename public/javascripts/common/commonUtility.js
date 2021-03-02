@@ -1,6 +1,6 @@
 let commonUtility = {};
 commonUtility.setNavActive = function(index) {
-    $(`ul.main-menu_nav li:nth-child(${index})`).addClass('kt-menu__item--here');
+    $(`ul.navbar-channel li:nth-child(${index})`).addClass('active');
 };
 
 commonUtility.setUserCenterActive = function() {

@@ -1,0 +1,15 @@
+.list-data {
+	margin-top: 15px;
+	background-color: #ffffff;
+	padding-top: 15px;
+}
+.list-data table {
+	background-color: #ffffff !important;
+}
+
+.table th, .table td {
+	vertical-align: middle!important;
+}
+.table {
+	margin-bottom: 0;
+}
