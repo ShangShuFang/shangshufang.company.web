@@ -2,6 +2,9 @@
 <html>
 
 <head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>上书房智慧教育 企业端 {{title}}</title>
 	<link href="/images/favicon.ico" rel="shortcut icon" />
 	<link rel='stylesheet' href='/stylesheets/framework/bootstrap-3.3.7/bootstrap.min.css' />
@@ -29,10 +32,26 @@
 						<li><a href="/company/talents">企业人才库</a></li>
 					</ul>
 
-					<ul class="nav navbar-nav navbar-right navbar-login">
+					<ul class="nav navbar-nav navbar-right navbar-login hidden">
 						<li><a href="/login">登录</a></li>
 						<li><a href="/register">注册</a></li>
 					</ul>
+
+					<ul class="nav navbar-nav navbar-right navbar-user hidden">
+						<li class="dropdown">
+							<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown">
+								<span class="user-name"></span> 
+								<span class="caret"></span>
+							</a>
+							<ul class="dropdown-menu">
+								{{!-- <li><a href="javascript:">个人中心</a></li>
+								<li><a href="javascript:">修改密码</a></li> --}}
+								{{!-- <li role="separator" class="divider"></li> --}}
+								<li><a href="javascript:" id="logout">退出</a></li>
+							</ul>
+						</li>
+					</ul>
+
 				</div><!-- /.navbar-collapse -->
 			</div><!-- /.container-fluid -->
 		</nav>
@@ -54,7 +73,7 @@
 				</div>
 				<div class=" margin-t-5">
 					<span>联系电话：18182505299</span>
-					<span>&copy; 2021 西安樱桃谷信息技术有限公司</span>
+					<span>&copy; 2020~2021 西安樱桃谷信息技术有限公司</span>
 				</div>
 			</div>
 		</div>
@@ -69,6 +88,7 @@
 	<script src="/javascripts/common/messager.js"></script>
 	<script src="/javascripts/common/localMessage.js"></script>
 	<script src="/javascripts/common/Constants.js"></script>
+	<script src="/javascripts/common/init.js"></script>
 </body>
 
 </html>

@@ -51,11 +51,10 @@ let app = new Vue({
 			return true;
 		},
 		searchTalentPoolStatus: function () {
-			//TODO: 判断用户是否登录
-			// if (!commonUtility.isLogin()) {
-			// 	return false;
-			// }
-			let companyID = 1;
+			if (!commonUtility.isLogin()) {
+				return false;
+			}
+			let companyID = commonUtility.getLoginUser().companyID;
 			let that = this;
 			axios.get(`/detail/talent/any?companyID=${companyID}&studentID=${that.studentID}`)
 				.then(res => {
@@ -158,11 +157,10 @@ let app = new Vue({
 			$('#exercises-modal').modal('show');
 		},
 		onSendInterview: function () {
-			//TODO: 判断用户是否登录
-			// if (!commonUtility.isLogin()) {
-			// 	messager.info('弹出登录对话框，提示用户登录');
-			// 	return false;
-			// }
+			if (!commonUtility.isLogin()) {
+				messager.info('您尚未登录，请登录后在进行操作');
+				return false;
+			}
 			this.talentPool.interviewTime = '';
 			this.talentPool.interviewTimeInValid = false;
 			this.talentPool.interviewAddress = '';
@@ -171,11 +169,10 @@ let app = new Vue({
 			$('#interview-modal').modal('show');
 		},
 		onSaveAttention: function () {
-			//TODO: 判断用户是否登录
-			// if (!commonUtility.isLogin()) {
-			// 	messager.info('弹出登录对话框，提示用户登录');
-			// 	return false;
-			// }
+			if (!commonUtility.isLogin()) {
+				messager.info('您尚未登录，请登录后在进行操作');
+				return false;
+			}
 			this.saveTalent('1');
 		},
 		checkData: function () {
@@ -199,8 +196,7 @@ let app = new Vue({
 			this.saveTalent('2');
 		},
 		saveTalent: function (status) {
-			//TODO: 根据用户登录信息取得用户编号
-			let companyID = 1;
+			let companyID = commonUtility.getLoginUser().companyID;
 			let that = this;
 			axios.post('/detail/save/talent', {
 				companyID: companyID,

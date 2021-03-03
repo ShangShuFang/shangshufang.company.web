@@ -1,7 +1,7 @@
 let app = new Vue({
 	el: '#app',
 	data: {
-		companyID: 1, //TODO 从cookie读取登录用户信息
+		companyID: 0,
 		isLogin: false,
 		loginUser: {},
 		categoryList: [],
@@ -28,12 +28,13 @@ let app = new Vue({
 	},
 	methods: {
 		initPage: function () {
-			// this.isLogin = commonUtility.isLogin();
-			// if (!this.isLogin) {
-			// 	return false;
-			// }
-			// this.loginUser = commonUtility.getLoginUser();
 			commonUtility.setNavActive(2);
+			this.isLogin = commonUtility.isLogin();
+			if (!this.isLogin) {
+				return false;
+			}
+			this.loginUser = commonUtility.getLoginUser();
+			this.companyID = this.loginUser.companyID;
 			this.loadDataStatus();
 			this.loadStudentList();
 		},
@@ -158,7 +159,7 @@ let app = new Vue({
 				interviewAddress: this.talentPool.interviewAddress,
 				memo: this.talentPool.memo,
 				dataStatus: '2',
-				loginUser: this.companyID
+				loginUser: this.loginUser.customerID
 			})
 			.then(res => {
 				if (res.data.err) {
@@ -177,7 +178,7 @@ let app = new Vue({
 			axios.put('/company/talents/change/status', {
 				talentID: talentID,
 				dataStatus: status,
-				loginUser: this.companyID
+				loginUser: this.loginUser.customerID
 			})
 			.then(res => {
 				if (res.data.err) {

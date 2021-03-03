@@ -1,0 +1,53 @@
+.login-header {
+	margin-top: 20px;
+}
+.login-header img {
+	height: 40px;
+}
+.login-header .logo {
+	float: left;
+}
+.login-header .welcome {
+	float: left;
+    margin-left: 15px;
+    padding-top: 5px;
+    font-size: 20px;
+	font-weight: 500;
+}
+.login-header .go-login {
+	float: right;
+	margin-left: 15px;
+	padding-top: 10px;
+}
+.login-content {
+	background: url("/images/login_bg2.jpeg") no-repeat;
+	margin-top: 20px;
+	height: 400px;
+	background-size: cover;  
+}
+.login-form {
+	width: 450px;
+    position: absolute;	
+    right: 200px;
+    padding: 30px;
+	margin-top: 55px;
+	background-color: rgba(255, 255, 255, 0.4);
+}
+.login-form .input-group-addon i {
+	width: 10px;
+}
+.login-footer {
+	margin-top: 15px;
+    color: #999;
+	height: 100px;
+}
+.login-footer .footer-content a {
+	color: #666;
+    text-decoration: none;
+}
+.login-footer .footer-content span {
+	color: #666;
+}
+.footer-content {
+	margin-top: 0 !important;
+}

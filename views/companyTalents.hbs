@@ -19,119 +19,132 @@
 			</div>
 		</div>
 	</div> --}}
-	<div class="container-fluid filter-group">
-		<div class="container padding-t-20">
-			<div class="filter-name">
-				<span>人员状态：</span>
-			</div>
-			<div class="filter-item">
-				<ul class="technology-category">
-					<li v-for="dataStatus in dataStatusList">
-						<a href="javascript:" :class="{'active': filterStatus == dataStatus.filterStatus}"
-							v-text="dataStatus.filterStatusText" @click="onFilterByStatus(dataStatus.filterStatus)"></a>
-					</li>
-				</ul>
-			</div>
+	<div class="container" v-if="!isLogin">
+		<div class="alert alert-warning" role="alert">
+			您尚未登录，请登录后再查看您企业的人才库。
 		</div>
 	</div>
-	<div class=" container list-data">
-		<table class="table table-bordered table-hover">
-			<thead>
-				<tr>
-					<th>姓名</th>
-					<th>性别</th>
-					<th>毕业院校</th>
-					<th>专业</th>
-					<th>手机号码</th>
-					<th>面试时间</th>
-					<th>面试地点</th>
-					<th>备注</th>
-					<th>当前状态</th>
-					<th>操作</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr v-for="student in studentList">
-					<td style="width: 6%;">
-						<a :href="'/detail?student=' + student.studentID" target="_blank" rel="noopener noreferrer" v-text="student.studentName"></a>
-					</td>
-					<td v-text="student.sex == '' ? '' : student.sex == 'M' ? '男' : '女'" style="width: 5%;"></td>
-					<td v-text="student.universityName" style="width: 9%;"></td>
-					<td v-text="student.majorName" style="width: 9%;"></td>
-					<td v-text="student.cellphone" style="width: 9%;"></td>
-					<td v-text="student.interviewTime" style="width: 9%;"></td>
-					<td v-text="student.interviewAddress" style="width: 19%;"></td>
-					<td v-text="student.memo" style="width: 19%;"></td>
-					<td style="width: 10%;">
-						<span class="label" :class="{'label-warning': student.dataStatus == '1', 
+
+	<div v-if="isLogin">
+		<div class="container-fluid filter-group">
+			<div class="container padding-t-20">
+				<div class="filter-name">
+					<span>人员状态：</span>
+				</div>
+				<div class="filter-item">
+					<ul class="technology-category">
+						<li v-for="dataStatus in dataStatusList">
+							<a href="javascript:" :class="{'active': filterStatus == dataStatus.filterStatus}"
+								v-text="dataStatus.filterStatusText"
+								@click="onFilterByStatus(dataStatus.filterStatus)"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class=" container list-data">
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>姓名</th>
+						<th>性别</th>
+						<th>毕业院校</th>
+						<th>专业</th>
+						<th>手机号码</th>
+						<th>面试时间</th>
+						<th>面试地点</th>
+						<th>备注</th>
+						<th>当前状态</th>
+						<th>操作</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr v-for="student in studentList">
+						<td style="width: 6%;">
+							<a :href="'/detail?student=' + student.studentID" target="_blank" rel="noopener noreferrer"
+								v-text="student.studentName"></a>
+						</td>
+						<td v-text="student.sex == '' ? '' : student.sex == 'M' ? '男' : '女'" style="width: 5%;"></td>
+						<td v-text="student.universityName" style="width: 9%;"></td>
+						<td v-text="student.majorName" style="width: 9%;"></td>
+						<td v-text="student.cellphone" style="width: 9%;"></td>
+						<td v-text="student.interviewTime" style="width: 9%;"></td>
+						<td v-text="student.interviewAddress" style="width: 19%;"></td>
+						<td v-text="student.memo" style="width: 19%;"></td>
+						<td style="width: 10%;">
+							<span class="label" :class="{'label-warning': student.dataStatus == '1', 
 					  'label-primary': student.dataStatus == '2' || student.dataStatus == '7', 
 					  'label-info': student.dataStatus == '3' || student.dataStatus == '4', 
 					  'label-danger': student.dataStatus == '5', 
 					  'label-success': student.dataStatus == '6' || student.dataStatus == '8', 
 					  'label-default': student.dataStatus == '9'}" v-text="student.dataStatusText"></span>
-					</td>
-					<td style="width: 5%;">
-						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-								...
-							</button>
-							<ul class="dropdown-menu">
-								<li v-if="student.dataStatus == '1'">
-									<a href="javascript:" @click="onSendInterview(student.talentID)">邀请面试</a>
-								</li>
-								<li v-if="student.dataStatus == '2' || student.dataStatus == '3'" >
-									<a href="javascript:" @click="onChangeStatus(student.talentID, '4')">未参加面试</a>
-								</li>
-								<li v-if="student.dataStatus == '3'">
-									<a href="javascript:" @click="onChangeStatus(student.talentID, '5')">面试未通过</a>
-								</li>
-								<li v-if="student.dataStatus == '3'">
-									<a href="javascript:" @click="onChangeStatus(student.talentID, '6')">面试通过</a>
-								</li>
-								<li v-if="student.dataStatus == '6'">
-									<a href="javascript:" @click="onChangeStatus(student.talentID, '7')">未入职</a>
-								</li>
-								<li v-if="student.dataStatus == '6'">
-									<a href="javascript:" @click="onChangeStatus(student.talentID, '8')">已入职</a>
-								</li>
-								<li v-if="student.dataStatus == '8'">
-									<a href="javascript:" @click="onChangeStatus(student.talentID, '9')">已离职</a>
-								</li>
-							</ul>
-						</div>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<div class="row">
-			<div class="col-xs-6">
-				<p class="padding-t-25"
-					v-text="'共查询到' + totalCount + '名满足条件的人员，当前显示第' + fromIndex + '到第' + toIndex + '名人员'"></p>
-			</div>
-			<div class="col-xs-6">
-				<nav class="text-right">
-					<ul class="pagination">
-						<li :class="{'disabled': prePageNum == -1}">
-							<a href="javascript:" @click="onFirstPage()"><i class="fa fa-angle-double-left"></i></a>
-						</li>
-						<li :class="{'disabled': prePageNum == -1}">
-							<a href="javascript:" @click="onPrePage()"><i class="fa fa-angle-left"></i></a>
-						</li>
-						<li v-for="pagination in paginationArray" :class="{'active': pageNumber == pagination}">
-							<a href="javascript:" v-text="pagination" @click="onPagination(pagination)"></a>
-						</li>
+						</td>
+						<td style="width: 5%;">
+							<div class="btn-group">
+								<a href="javascript:" class="dropdown-toggle" data-toggle="dropdown">
+									操作
+								</a>
+								<ul class="dropdown-menu">
+									<li v-if="student.dataStatus == '1'">
+										<a href="javascript:" @click="onSendInterview(student.talentID)">邀请面试</a>
+									</li>
+									<li v-if="student.dataStatus == '2' || student.dataStatus == '3'">
+										<a href="javascript:" @click="onChangeStatus(student.talentID, '4')">未参加面试</a>
+									</li>
+									<li v-if="student.dataStatus == '3'">
+										<a href="javascript:" @click="onChangeStatus(student.talentID, '5')">面试未通过</a>
+									</li>
+									<li v-if="student.dataStatus == '3'">
+										<a href="javascript:" @click="onChangeStatus(student.talentID, '6')">面试通过</a>
+									</li>
+									<li v-if="student.dataStatus == '6'">
+										<a href="javascript:" @click="onChangeStatus(student.talentID, '7')">未入职</a>
+									</li>
+									<li v-if="student.dataStatus == '6'">
+										<a href="javascript:" @click="onChangeStatus(student.talentID, '8')">已入职</a>
+									</li>
+									<li v-if="student.dataStatus == '8'">
+										<a href="javascript:" @click="onChangeStatus(student.talentID, '9')">已离职</a>
+									</li>
+								</ul>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="row">
+				<div class="col-xs-6">
+					<p class="padding-t-25"
+						v-text="'共查询到' + totalCount + '名满足条件的人员，当前显示第' + fromIndex + '到第' + toIndex + '名人员'"></p>
+				</div>
+				<div class="col-xs-6">
+					<nav class="text-right">
+						<ul class="pagination">
+							<li :class="{'disabled': prePageNum == -1}">
+								<a href="javascript:" @click="onFirstPage()"><i class="fa fa-angle-double-left"></i></a>
+							</li>
+							<li :class="{'disabled': prePageNum == -1}">
+								<a href="javascript:" @click="onPrePage()"><i class="fa fa-angle-left"></i></a>
+							</li>
+							<li v-for="pagination in paginationArray" :class="{'active': pageNumber == pagination}">
+								<a href="javascript:" v-text="pagination" @click="onPagination(pagination)"></a>
+							</li>
 
-						<li :class="{'disabled': nextPageNum == -1}">
-							<a href="javascript:" @click="onNextPage()"><i class="fa fa-angle-right"></i></a>
-						</li>
-						<li :class="{'disabled': nextPageNum == -1}">
-							<a href="javascript:" @click="onLastPage()"><i class="fa fa-angle-double-right"></i></a>
-						</li>
-					</ul>
-				</nav>
+							<li :class="{'disabled': nextPageNum == -1}">
+								<a href="javascript:" @click="onNextPage()"><i class="fa fa-angle-right"></i></a>
+							</li>
+							<li :class="{'disabled': nextPageNum == -1}">
+								<a href="javascript:" @click="onLastPage()"><i class="fa fa-angle-double-right"></i></a>
+							</li>
+						</ul>
+					</nav>
+				</div>
 			</div>
 		</div>
 	</div>
+
+
+
 	<div class="modal fade" id="interview-modal" tabindex="-1" role="dialog">
 		<div class="modal-dialog" role="document">
 			<div class="modal-content">
@@ -152,14 +165,16 @@
 						<div class="form-group" :class="{'has-error': talentPool.interviewAddressInValid}">
 							<label class="col-sm-2 control-label">面试地址</label>
 							<div class="col-sm-10">
-								<input type="text" class="form-control" maxlength="200" v-model="talentPool.interviewAddress">
+								<input type="text" class="form-control" maxlength="200"
+									v-model="talentPool.interviewAddress">
 								<span class="help-block" v-if="talentPool.interviewAddressInValid">请填写面试地址</span>
 							</div>
 						</div>
 						<div class="form-group">
 							<label class="col-sm-2 control-label">备注</label>
 							<div class="col-sm-10">
-								<textarea class="form-control" rows="5" maxlength="300" v-model="talentPool.memo"></textarea>
+								<textarea class="form-control" rows="5" maxlength="300"
+									v-model="talentPool.memo"></textarea>
 							</div>
 						</div>
 					</form>

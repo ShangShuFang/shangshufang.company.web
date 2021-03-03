@@ -3,9 +3,9 @@
 		"host": "localhost",
 		"port": 8081,
 		"path": {
-			"login": "api/v1/user/company/login",
-			"register": "api/v1/user/company/add",
-			"changePassword": "api/v1/user/company/change/password",
+			"login": "api/v1/account/company/login",
+			"register": "api/v1/account/company/add",
+			"changePassword": "api/v1/account/company/change/password",
 			"technologyCategoryList": "api/v1/technology/category/list",
 			"studentAbilityList": "api/v1/analysis/ability/student/list",
 			"studenInfo": "api/v1/user/student/any",
@@ -18,6 +18,12 @@
 			"addCompanyTalent": "api/v1/customer/talent/add",
 			"changeCompanyTalent": "api/v1/customer/talent/change",
 			"changeCompanyTalentStatus": "api/v1/customer/talent/change/status",
+
+			"searchCellphoneCount": "api/v1/account/company/check/cellphone",
+			"saveVerificationCode": "api/v1/verification_code/add",
+
+			"addThirdPartyService": "api/v1/thirdParty/service/add",
+			"checkVerificationCode": "api/v1/verification_code/any",
 
 			"addUserTracking": "api/v1/tracking/add"
 		}
