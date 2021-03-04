@@ -26,6 +26,7 @@ let app = new Vue({
 			if (!this.getParameters()) {
 				return false;
 			}
+			this.saveBrowsingHistory();
 			this.searchTalentPoolStatus();
 			this.loadStudentInfo();
 			this.loadTechnologyList();
@@ -49,6 +50,27 @@ let app = new Vue({
 			}
 			
 			return true;
+		},
+		saveBrowsingHistory: function () {
+			if (!commonUtility.isLogin()) {
+				return false;
+			}
+			let companyID = commonUtility.getLoginUser().companyID;
+			axios.post('/detail/browsing', {
+				companyID: companyID,
+				studentID: this.studentID,
+				loginUser: companyID
+			})
+			.then(function(res) {
+				if (res.data.err) {
+					messager.error(localMessage.exception(res.data.code, res.data.msg));
+					return false;
+				}
+				
+			})
+			.catch(function(error) {
+				
+			});
 		},
 		searchTalentPoolStatus: function () {
 			if (!commonUtility.isLogin()) {
@@ -87,6 +109,10 @@ let app = new Vue({
 						return false;
 					}
 					that.student = apiResponse;
+					if (!commonUtility.isLogin()) {
+						that.student.cellphone = '登录后可见';
+						that.student.email = '登录后可见';
+					}
 				})
 				.catch(err => {
 					messager.error(localMessage.NETWORK_ERROR);

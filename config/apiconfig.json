@@ -24,6 +24,7 @@
 
 			"addThirdPartyService": "api/v1/thirdParty/service/add",
 			"checkVerificationCode": "api/v1/verification_code/any",
+			"addResumeBrowsingHistory": "api/v1/resume/browse/add",
 
 			"addUserTracking": "api/v1/tracking/add"
 		}

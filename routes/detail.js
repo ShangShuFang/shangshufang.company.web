@@ -162,4 +162,29 @@ router.post('/save/talent', function (req, res, next) {
 		});
 });
 
+router.post('/browsing', function (req, res, next) {
+	let apiKey = 'addResumeBrowsingHistory';
+	let requestApi = buildUtils.buildRequestApiUri(apiKey);
+
+	axios.post(requestApi, {
+		companyID: req.body.companyID,
+		studentID: req.body.studentID,
+		loginUser: req.body.loginUser
+	})
+		.then(response => {
+			res.json({
+				err: !response.data.result,
+				code: response.data.responseCode,
+				msg: response.data.responseMessage
+			});
+		})
+		.catch(error => {
+			res.json({
+				err: true,
+				code: error.code,
+				msg: customerMessage[error.code]
+			});
+		});
+});
+
 module.exports = router;
