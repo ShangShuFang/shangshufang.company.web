@@ -50,7 +50,8 @@
 						<th>性别</th>
 						<th>毕业院校</th>
 						<th>专业</th>
-						<th>手机号码</th>
+						{{!-- <th>手机号码</th> --}}
+						<th>面试岗位</th>
 						<th>面试时间</th>
 						<th>面试地点</th>
 						<th>备注</th>
@@ -67,7 +68,8 @@
 						<td v-text="student.sex == '' ? '' : student.sex == 'M' ? '男' : '女'" style="width: 5%;"></td>
 						<td v-text="student.universityName" style="width: 9%;"></td>
 						<td v-text="student.majorName" style="width: 9%;"></td>
-						<td v-text="student.cellphone" style="width: 9%;"></td>
+						{{!-- <td v-text="student.cellphone" style="width: 9%;"></td> --}}
+						<td v-text="student.interviewJob" style="width: 9%;"></td>
 						<td v-text="student.interviewTime" style="width: 9%;"></td>
 						<td v-text="student.interviewAddress" style="width: 19%;"></td>
 						<td v-text="student.memo" style="width: 19%;"></td>

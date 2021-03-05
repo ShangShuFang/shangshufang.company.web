@@ -182,6 +182,14 @@
 				</div>
 				<div class="modal-body">
 					<form class="form-horizontal">
+						<div class="form-group" :class="{'has-error': talentPool.interviewJobInValid}">
+							<label class="col-sm-2 control-label">面试岗位</label>
+							<div class="col-sm-10">
+								<input type="text" class="form-control" maxlength="50" v-model="talentPool.interviewJob">
+								<span class="help-block" v-if="talentPool.interviewJobInValid">请填写面试岗位</span>
+							</div>
+						</div>
+
 						<div class="form-group" :class="{'has-error': talentPool.interviewTimeInValid}">
 							<label class="col-sm-2 control-label">面试时间</label>
 							<div class="col-sm-10">

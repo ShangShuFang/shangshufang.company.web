@@ -182,7 +182,7 @@ let app = new Vue({
 			})
 			.then(res => {
 				if (res.data.err) {
-					message.error(localMessage.exception(res.data.code, res.data.msg));
+					messager.error(localMessage.exception(res.data.code, res.data.msg));
 					return false;
 				}
 				this.loadStudentList();

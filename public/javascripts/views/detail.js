@@ -11,6 +11,8 @@ let app = new Vue({
 		exercisesTitle: '',
 		exercisesContent: '',
 		talentPool: {
+			interviewJob: '',
+			interviewJobInValid: false,
 			interviewTime: '',
 			interviewTimeInValid: false,
 			interviewAddress: '',
@@ -187,6 +189,8 @@ let app = new Vue({
 				messager.info('您尚未登录，请登录后在进行操作');
 				return false;
 			}
+			this.talentPool.interviewJob = '';
+			this.talentPool.interviewJobInValid = false;
 			this.talentPool.interviewTime = '';
 			this.talentPool.interviewTimeInValid = false;
 			this.talentPool.interviewAddress = '';
@@ -203,8 +207,14 @@ let app = new Vue({
 		},
 		checkData: function () {
 			let result = true;
+			this.talentPool.interviewJobInValid = false;
 			this.talentPool.interviewTimeInValid = false;
 			this.talentPool.interviewAddressInValid = false;
+			
+			if (dataVerify.isEmpty(this.talentPool.interviewJob)) {
+				this.talentPool.interviewJobInValid = true;
+				result = false;
+			}
 			if (dataVerify.isEmpty(this.talentPool.interviewTime)) {
 				this.talentPool.interviewTimeInValid = true;
 				result = false;
@@ -228,6 +238,7 @@ let app = new Vue({
 				companyID: companyID,
 				studentID: this.studentID,
 				dataStatus: status,
+				interviewJob: this.talentPool.interviewJob,
 				interviewTime: this.talentPool.interviewTime,
 				interviewAddress: this.talentPool.interviewAddress,
 				memo: this.talentPool.memo,

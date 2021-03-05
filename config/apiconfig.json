@@ -13,7 +13,7 @@
 			"studenKnowledgeAnalysisList": "api/v1/analysis/ability/student/list/comprehensive/analysis/knowledge",
 			"studenComprehensiveExercisesList": "api/v1/student/exercises/comprehensive/list/technology",
 
-			"searchCompanyTalentList": "api/v1/customer/talent/list",
+			"searchCompanyTalentList": "api/v1/customer/talent/list/student",
 			"searchCompanyTalent": "api/v1/customer/talent/any",
 			"addCompanyTalent": "api/v1/customer/talent/add",
 			"changeCompanyTalent": "api/v1/customer/talent/change",

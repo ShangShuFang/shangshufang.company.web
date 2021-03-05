@@ -141,6 +141,7 @@ router.post('/save/talent', function (req, res, next) {
 		companyID: req.body.companyID,
 		studentID: req.body.studentID,
 		dataStatus: req.body.dataStatus,
+		interviewJob: req.body.interviewJob,
 		interviewTime: req.body.interviewTime,
 		interviewAddress: req.body.interviewAddress,
 		memo: req.body.memo,
