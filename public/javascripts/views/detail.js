@@ -148,6 +148,7 @@ let app = new Vue({
 				return false;
 			}
 			this.technology = technology;
+			this.technologyID = technology.technologyID;
 			this.loadKnowledgeList();
 			this.loadExercisesList();
 		},

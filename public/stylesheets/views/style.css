@@ -59,7 +59,7 @@ body {
 	margin-top: 80px;
 	max-height: 150px;
     height: 150px;
-    background: url(/images/growing_map_header.jpg) no-repeat;
+    background: url(/images/growing_map_header.png) no-repeat;
     background-size: 100% 100%;
 }
 .navbar-login a:hover {
