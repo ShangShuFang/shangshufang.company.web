@@ -62,6 +62,23 @@ body {
     background: url(/images/growing_map_header.png) no-repeat;
     background-size: 100% 100%;
 }
+.page-header .img {
+	float: left;
+	width: 30%;
+	margin-right: 15px;
+	padding-top: 5px;
+}
+.page-header .slogan {
+	padding-top: 22px;
+}
+.page-header .slogan h4 {
+	display: block;
+	color: #ffffff;
+}
+.page-header .slogan .strong {
+	color: #aef30b;
+}
+
 .navbar-login a:hover {
 	color: #0286ee !important;
 }
@@ -77,4 +94,7 @@ body {
 }
 .footer-content span {
 	color: #bbbaba;
+}
+.margin-b-15 {
+	margin-bottom: 15px;
 }
